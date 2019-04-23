@@ -164,7 +164,7 @@ function getAllData(storeName) {
   });
 }
 
-function setupDataFavHtml(dataType) {
+function dataFavorit(dataType) {
   if (dataType == "pemain") {
     getAllData("pemain_favorit").then(function(data) {
       resultPlayerFav(data);

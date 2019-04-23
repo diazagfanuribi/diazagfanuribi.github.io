@@ -43,13 +43,13 @@ function error(error) {
 }
 
 // Blok kode untuk melakukan request data json
-function getKlasemenLiga() {
+function memuatKlasemenLiga() {
   if ("caches" in window) {
     caches.match(endpoint_klasemen).then(function(response) {
       if (response) {
         response.json().then(function(data) {
           resultKlasemenJSON(data);
-          console.dir("getKlasemenLiga " + data);
+          console.dir("memuatKlasemenLiga " + data);
         });
       }
     });

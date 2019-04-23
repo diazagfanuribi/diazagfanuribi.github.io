@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } else if (page === "favorit" || page === "team-fav") {
       page = "favorit";
       typeFavorit = "tim";
-    } else if (page === "player-fav") {
+    } else if (page === "pemain_favorit") {
       page = "favorit";
       typeFavorit = "pemain";
     } else {
@@ -61,25 +61,21 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function loadPage(page) {
-    console.log("loadPage: page: " + page);
-    console.log("loadPage: typeFavorit: " + typeFavorit);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-      var content = document.querySelector("#body-content");
 
       if (this.readyState == 4) {
         if (page === "home") {
-          getKlasemenLiga();
+          memuatKlasemenLiga();
         } else if (page === "favorit") {
-          setupDataFavHtml(typeFavorit);
+          dataFavorit(typeFavorit);
         }
 
         if (this.status == 200) {
-          content.innerHTML = xhttp.responseText;
-        } else if (this.status == 404) {
-          content.innerHTML = "<p>Halaman tidak ditemukan.</p>";
+          console.log("Berhasil memuat page")
+          document.querySelector("#body-content");.innerHTML = xhttp.responseText;
         } else {
-          content.innerHTML = "<p>Ups.. halaman tidak dapat diakses.</p>";
+          console.log("terjadi kesalahan");
         }
       }
     };
