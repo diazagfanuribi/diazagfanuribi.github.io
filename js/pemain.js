@@ -1,9 +1,9 @@
 function resultPlayerFav(data) {
-    var dataPlayerFavHtml = ''
-    data.forEach(function (player) {
-        //console.dir("cek nama pemain: " + player.name);
+  var dataPlayerFavHtml = "";
+  data.forEach(function(player) {
+    //console.dir("cek nama pemain: " + player.name);
 
-        dataPlayerFavHtml += `
+    dataPlayerFavHtml += `
     <div class="col s12 m6 l6">
       <div class="card">
       <div class="card-content">
@@ -17,9 +17,9 @@ function resultPlayerFav(data) {
       </div>
       </div>
     </div>
-        `
-    });
+        `;
+  });
 
-    // Sisipkan komponen card ke dalam elemen dengan id divFavorit
-    document.getElementById("divFavorit").innerHTML = dataPlayerFavHtml;
+  // Sisipkan komponen card ke dalam elemen dengan id tabel_favorit
+  document.getElementById("tabel_favorit").innerHTML = dataPlayerFavHtml;
 }

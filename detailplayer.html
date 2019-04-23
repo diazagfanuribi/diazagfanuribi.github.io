@@ -66,19 +66,19 @@
       var isFavorit = false
       cekData("pemain_favorit", id).then((msg) => {
         console.log("statusData: resolve = " + msg)
-        document.getElementById("iconFav").innerHTML = "favorite"
+        document.getElementById("ikon_favorit").innerHTML = "favorite"
         getSavedDataById("pemain")
         isFavorit = true
       }).catch((msg) => {
         console.log("statusData: reject = " + msg)
-        document.getElementById("iconFav").innerHTML = "favorite_border"
+        document.getElementById("ikon_favorit").innerHTML = "favorite_border"
         getDetailPlayerById()
         isFavorit = false
       })
 
-      var iconFav = document.getElementById("iconFav");
+      var ikon_favorit = document.getElementById("ikon_favorit");
 
-      iconFav.onclick = function () {
+      ikon_favorit.onclick = function () {
         console.log("Tombol FAB di klik.");
         if (isFavorit) {
           deleteDatafav("pemain_favorit", id);
@@ -151,7 +151,7 @@
 
     <div id="fabFav" class="fixed-action-btn">
       <a class="btn-floating btn-large red">
-        <i id="iconFav" class="large material-icons">favorite_border</i>
+        <i id="ikon_favorit" class="large material-icons">favorite_border</i>
       </a>
     </div>
     <div class="card-content">

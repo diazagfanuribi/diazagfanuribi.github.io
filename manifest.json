@@ -1,11 +1,11 @@
 {
   "name": "Aplikasi Informasi Sepakbola",
   "short_name": "PWA Bola",
-  "description": "Aplikasi Informasi Sepakbola - PWA Fajar Septian",
+  "description": "Aplikasi Informasi Sepakbola",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#E53935",
-  "theme_color": "#E53935",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "icon.png",

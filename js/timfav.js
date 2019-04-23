@@ -1,11 +1,10 @@
 function resultTeamFav(data) {
+  var dataTeamFavHtml = "";
+  data.forEach(function(team) {
+    // Objek JavaScript dari response.json() masuk lewat variabel data.
+    console.dir("setupTeamFavHtml: " + team.name);
 
-    var dataTeamFavHtml = ''
-    data.forEach(function (team) {
-        // Objek JavaScript dari response.json() masuk lewat variabel data.
-        console.dir("setupTeamFavHtml: " + team.name);
-
-        dataTeamFavHtml += `
+    dataTeamFavHtml += `
     <div class="col s12 m6 l6">
       <div class="card">
     
@@ -20,9 +19,8 @@ function resultTeamFav(data) {
       </div>
       </div>
     </div>
-        `
-    });
+        `;
+  });
 
-    // Sisipkan komponen card ke dalam elemen dengan id divFavorit
-    document.getElementById("divFavorit").innerHTML = dataTeamFavHtml;
+  document.getElementById("tabel_favorit").innerHTML = dataTeamFavHtml;
 }
