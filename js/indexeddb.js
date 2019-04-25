@@ -21,7 +21,6 @@ function deleteDatafav(storeName, data) {
     .then(function(db) {
       var tx = db.transaction(storeName, "readwrite");
       var store = tx.objectStore(storeName);
-      //console.log("deleteDataPlayerfav: cek id= " + data);
       store.delete(data);
       return tx.complete;
     })
@@ -96,7 +95,6 @@ function createDataFav(dataType, data) {
 }
 
 function getSavedDataById(dataType) {
-  // Ambil nilai query parameter (?id=)
   var urlParams = new URLSearchParams(window.location.search);
   var idParam = Number(urlParams.get("id"));
 
@@ -104,15 +102,11 @@ function getSavedDataById(dataType) {
     var dataSquadHTML = "";
     var tabelSquadHTML = "";
     getDataById("tim_favorit", idParam).then(function(tim) {
-      // Objek JavaScript dari response.json() masuk lewat variabel data.
       console.dir("getSavedTimById: " + tim);
-      // Menyusun komponen card artikel secara dinamis
       resultDetailTimJSON(tim);
       dataTeamJSON = tim;
       tim.squad.forEach(function(squad) {
         dataSquadJSON = squad;
-        console.log("getSavedTimById cek squad name: " + squad.name);
-        console.log("getSavedTimById cek squad position: " + squad.position);
         dataSquadHTML += `
          <tr>
            <td >
@@ -128,9 +122,7 @@ function getSavedDataById(dataType) {
     });
   } else if (dataType == "pemain") {
     getDataById("pemain_favorit", idParam).then(function(player) {
-      // Objek JavaScript dari response.json() masuk lewat variabel data.
       console.dir("getSavedPlayerById: data: " + player);
-      // Menyusun komponen card artikel secara dinamis
       resultDetailPemainJSON(player);
     });
   }
@@ -174,4 +166,28 @@ function dataFavorit(dataType) {
       resultTeamFav(data);
     });
   }
+}
+
+function database(idb) {
+  var dbPromise = idb.open("db_pwasepakbola", 1, function(upgradeDb) {
+    if (!upgradeDb.objectStoreNames.contains("tim_favorit")) {
+      var indexTimFav = upgradeDb.createObjectStore("tim_favorit", {
+        keyPath: "id"
+      });
+      indexTimFav.createIndex("namaTim", "name", {
+        unique: false
+      });
+    }
+
+    if (!upgradeDb.objectStoreNames.contains("pemain_favorit")) {
+      var indexPlayerFav = upgradeDb.createObjectStore("pemain_favorit", {
+        keyPath: "id"
+      });
+      indexPlayerFav.createIndex("namaPemain", "name", {
+        unique: false
+      });
+    }
+  });
+
+  return dbPromise;
 }

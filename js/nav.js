@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Activate sidebar nav
   var elems = document.querySelectorAll(".sidenav");
   M.Sidenav.init(elems);
 
@@ -20,13 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
           .querySelectorAll(".sidenav a, .topnav a")
           .forEach(function(elm) {
             elm.addEventListener("click", function(event) {
-              // Tutup sidenav
               var sidenav = document.querySelector(".sidenav");
               M.Sidenav.getInstance(sidenav).close();
 
-              // Muat konten halaman yang dipanggil
               page = event.target.getAttribute("href").substr(1);
-              //console.log("cek halaman yang dimuat: loadNav: " + page);
 
               loadPage(setupPage(page));
             });
@@ -37,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
     xhttp.send();
   }
 
-  // Load page content
   var page = window.location.hash.substr(1);
 
   loadPage(setupPage(page));
@@ -60,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
   function loadPage(page) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-
       if (this.readyState == 4) {
         if (page === "home") {
           memuatKlasemenLiga();
@@ -69,8 +63,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         if (this.status == 200) {
-          console.log("Berhasil memuat page")
-          document.querySelector("#body-content");.innerHTML = xhttp.responseText;
+          console.log("Berhasil memuat page");
+          document.querySelector("#body-content").innerHTML =
+            xhttp.responseText;
         } else {
           console.log("terjadi kesalahan");
         }

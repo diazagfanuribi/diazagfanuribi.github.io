@@ -63,10 +63,6 @@ if (workbox) {
       revision: "1"
     },
     {
-      url: "/js/db.js",
-      revision: "1"
-    },
-    {
       url: "/js/idb.js",
       revision: "1"
     },
