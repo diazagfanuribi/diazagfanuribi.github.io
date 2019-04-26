@@ -2,8 +2,8 @@ function resultKlasemenJSON(data) {
   var tabelKlasemenAtasHtml = "";
   var tabelKlasemenTengahHtml = "";
   var tabelKlasemenBawahHtml = "";
-  data.standings.forEach(function(klasemen) {
-    klasemen.table.forEach(function(club) {
+  data.standings.forEach(function (klasemen) {
+    klasemen.table.forEach(function (club) {
       club = JSON.parse(JSON.stringify(club).replace(/http:/g, "https:"));
       if (club.position < 5) {
         tabelKlasemenAtasHtml += `

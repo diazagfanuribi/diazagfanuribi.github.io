@@ -1,6 +1,6 @@
 function resultTeamFav(data) {
   var dataTeamFavHtml = "";
-  data.forEach(function(team) {
+  data.forEach(function (team) {
     // Objek JavaScript dari response.json() masuk lewat variabel data.
     console.dir("setupTeamFavHtml: " + team.name);
 
