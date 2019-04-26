@@ -4,14 +4,12 @@
   "description": "Aplikasi Informasi Sepakbola",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
-  "icons": [
-    {
-      "src": "icon.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
+  "background_color": "##00897B",
+  "theme_color": "##00897B",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
   "gcm_sender_id": "859142964183"
 }

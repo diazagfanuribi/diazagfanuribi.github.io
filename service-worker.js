@@ -5,8 +5,7 @@ importScripts(
 if (workbox) {
   console.log(`Workbox berhasil dimuat`);
   ///Precaching App Shell
-  workbox.precaching.precacheAndRoute([
-    {
+  workbox.precaching.precacheAndRoute([{
       url: "/",
       revision: "1"
     },
@@ -158,8 +157,7 @@ if (workbox) {
   console.log(`Workbox gagal dimuat`);
 }
 
-//siapkan dulu service worker untuk menerima datanya
-self.addEventListener("push", function(event) {
+self.addEventListener("push", function (event) {
   var body;
   if (event.data) {
     body = event.data.text();
@@ -169,7 +167,6 @@ self.addEventListener("push", function(event) {
   var options = {
     body: body,
     icon: "image/notif.png",
-    vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
       primaryKey: 1
