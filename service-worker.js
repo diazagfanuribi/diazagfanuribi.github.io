@@ -3,8 +3,6 @@ importScripts(
 );
 
 if (workbox) {
-  console.log(`Workbox berhasil dimuat`);
-  ///Precaching App Shell
   workbox.precaching.precacheAndRoute([{
       url: "/",
       revision: "1"
@@ -58,7 +56,7 @@ if (workbox) {
       revision: "1"
     },
     {
-      url: "/js/indexeddb.js",
+      url: "/js/db.js",
       revision: "1"
     },
     {

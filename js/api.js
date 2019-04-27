@@ -35,9 +35,9 @@ function error(error) {
 
 function memuatKlasemenLiga() {
   if ("caches" in window) {
-    caches.match(endpoint_klasemen).then(function(response) {
+    caches.match(endpoint_klasemen).then(function (response) {
       if (response) {
-        response.json().then(function(data) {
+        response.json().then(function (data) {
           resultKlasemenJSON(data);
           console.dir("memuatKlasemenLiga " + data);
         });
@@ -48,7 +48,7 @@ function memuatKlasemenLiga() {
   fetchApi(endpoint_klasemen)
     .then(status)
     .then(json)
-    .then(function(data) {
+    .then(function (data) {
       console.log(data);
       console.log(data);
 
@@ -58,18 +58,18 @@ function memuatKlasemenLiga() {
 }
 
 function getDetailKlubById() {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     var urlParams = new URLSearchParams(window.location.search);
     var idParam = urlParams.get("id");
 
     var dataSquadHTML = "";
     var tabelSquadHTML = "";
     if ("caches" in window) {
-      caches.match(endpoint_tim + idParam).then(function(response) {
+      caches.match(endpoint_tim + idParam).then(function (response) {
         if (response) {
-          response.json().then(function(data) {
+          response.json().then(function (data) {
             resultDetailTimJSON(data);
-            data.squad.forEach(function(squad, index) {
+            data.squad.forEach(function (squad, index) {
               dataSquadJSON = squad;
               dataSquadHTML += `
                                         <tr>
@@ -94,12 +94,12 @@ function getDetailKlubById() {
     fetchApi(endpoint_tim + idParam)
       .then(status)
       .then(json)
-      .then(function(data) {
+      .then(function (data) {
         console.log(data);
 
         resultDetailTimJSON(data);
         dataTeamJSON = data;
-        data.squad.forEach(function(squad, index) {
+        data.squad.forEach(function (squad, index) {
           dataSquadJSON = squad;
           console.log("cek squad name: " + squad.name);
           console.log("cek squad position: " + squad.position);
@@ -122,15 +122,15 @@ function getDetailKlubById() {
 }
 
 function getDetailPlayerById() {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     var urlParams = new URLSearchParams(window.location.search);
     var idParam = urlParams.get("id");
     var dataSquadHTML = "";
     var tabelSquadHTML = "";
     if ("caches" in window) {
-      caches.match(endpoint_pemain + idParam).then(function(response) {
+      caches.match(endpoint_pemain + idParam).then(function (response) {
         if (response) {
-          response.json().then(function(data) {
+          response.json().then(function (data) {
             resultDetailPemainJSON(data);
             resolve(data);
           });
@@ -140,7 +140,7 @@ function getDetailPlayerById() {
     fetchApi(endpoint_pemain + idParam)
       .then(status)
       .then(json)
-      .then(function(data) {
+      .then(function (data) {
         console.log(data);
         resultDetailPemainJSON(data);
         resolve(data);

@@ -36,7 +36,7 @@
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/api.js"></script>
   <script type="text/javascript" src="js/tim.js"></script>
-  <script type="text/javascript" src="js/indexeddb.js"></script>
+  <script type="text/javascript" src="js/db.js"></script>
   <script type="text/javascript" src="js/idb.js"></script>
 
   <script>
@@ -101,7 +101,7 @@
             <i id="ikon_favorit" class="large material-icons">favorite_border</i>
           </a>
         </div>
-        <div class="card-content">
+        <div class="card-content blue-grey darken-4 white-text">
           <div style="text-align: center">
             <img id="logoKlub" alt="data.crestUrls" align="center" width="100" height="100" vspace="25" />
             <p id="namaKlub"></p>
@@ -109,31 +109,31 @@
           <hr size="12px" />
         </div>
 
-        <div class="card-tabs">
+        <div class="card-tabs blue-grey darken-2 white-text">
           <ul class="tabs tabs-fixed-width">
             <li class="tab">
-              <a class="active" href="#overview">OVERVIEW</a>
+              <a class="active blue-grey darken-1" href="#overview">OVERVIEW</a>
             </li>
-            <li class="tab"><a href="#squad">SQUAD</a></li>
+            <li class="tab blue-grey darken-1"><a href="#squad">SQUAD</a></li>
           </ul>
-          <div class="card-content ">
+          <div class="card-content">
             <div id="overview">
               <table>
                 <tbody>
                   <tr>
-                    <td>name :</td>
+                    <td>Name</td>
                     <td id="name"></td>
                   </tr>
                   <tr>
-                    <td>short Name :</td>
+                    <td>NickName</td>
                     <td id="shortName"></td>
                   </tr>
                   <tr>
-                    <td>Tla :</td>
+                    <td>Tla</td>
                     <td id="tla"></td>
                   </tr>
                   <tr>
-                    <td>address :</td>
+                    <td>address </td>
                     <td id="address"></td>
                   </tr>
                   <tr>
@@ -145,19 +145,19 @@
                     <td id="website"></td>
                   </tr>
                   <tr>
-                    <td>email :</td>
+                    <td>Email </td>
                     <td id="email"></td>
                   </tr>
                   <tr>
-                    <td>Founded :</td>
+                    <td>Founded</td>
                     <td id="founded"></td>
                   </tr>
                   <tr>
-                    <td>Club Colors :</td>
+                    <td>Club Colors</td>
                     <td id="clubColors"></td>
                   </tr>
                   <tr>
-                    <td>Venue :</td>
+                    <td>Venue</td>
                     <td id="venue"></td>
                   </tr>
                 </tbody>
